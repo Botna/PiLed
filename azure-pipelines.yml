@@ -6,16 +6,19 @@ pool:
 
 steps:
 - task: DotNetCoreCLI@2
+  displayName: 'Restore projects'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Build projects'
   inputs:
     command: 'build'
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Run tests and report to ADO'
   inputs:
     command: test
     projects: '**/*Test/*.csproj'
