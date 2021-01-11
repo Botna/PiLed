@@ -129,7 +129,6 @@ namespace PiLed.Test.Device
             device.FlushColorToLeds(buffer);
             var elapsedMs = stopwatch.ElapsedMilliseconds;
             Assert.Greater(elapsedMs, 3000);
-            Assert.Less(elapsedMs, 3150);
             _spiHandlerMock.VerifyAll();
         }
     }
