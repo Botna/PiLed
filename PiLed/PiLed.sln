@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiLed", "PiLed\PiLed.csproj", "{0FEEB835-94D2-423E-8DA5-F37B5454E157}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PiLed.Test", "PiLed.Test\PiLed.Test.csproj", "{F2A9997E-F0B4-423B-84BB-E74A34F89D48}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2111FA53-D640-4FCB-AF46-4601793383E1}"
 	ProjectSection(SolutionItems) = preProject
 		..\azure-pipelines.yml = ..\azure-pipelines.yml
 		..\README.md = ..\README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PiLed.Test", "PiLed.Test\PiLed.Test.csproj", "{13D8CFCB-3DDA-4576-B421-572D8DB1B2BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{0FEEB835-94D2-423E-8DA5-F37B5454E157}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FEEB835-94D2-423E-8DA5-F37B5454E157}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FEEB835-94D2-423E-8DA5-F37B5454E157}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2A9997E-F0B4-423B-84BB-E74A34F89D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2A9997E-F0B4-423B-84BB-E74A34F89D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2A9997E-F0B4-423B-84BB-E74A34F89D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2A9997E-F0B4-423B-84BB-E74A34F89D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13D8CFCB-3DDA-4576-B421-572D8DB1B2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D8CFCB-3DDA-4576-B421-572D8DB1B2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D8CFCB-3DDA-4576-B421-572D8DB1B2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D8CFCB-3DDA-4576-B421-572D8DB1B2BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

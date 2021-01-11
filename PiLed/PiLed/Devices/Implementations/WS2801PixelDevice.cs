@@ -2,6 +2,7 @@
 using PiLed.Devices.SPI;
 using PiLed.Models;
 using System;
+using System.Device.Spi;
 using System.Diagnostics;
 
 namespace PiLed.Devices.Implementations
@@ -10,12 +11,27 @@ namespace PiLed.Devices.Implementations
     {
         public ISpiHandler _spi { get; set; }
         public PixelConfig _config { get; set; }
+        public SpiConnectionSettings _spiConnectionSettings
+        {
+            get =>
+                  new SpiConnectionSettings(0)
+                  {
+                      ClockFrequency = 976000,
+                      Mode = SpiMode.Mode1
+                  };
+        }
 
         private readonly Stopwatch _stopwatch;
 
-        public WS2801PixelDevice(PixelConfig config, ISpiHandler handler)
+        public WS2801PixelDevice(PixelConfig config, ISpiHandler handler = null)
         {
-            _spi = handler;
+            //Tests will pass in this value for mocking,
+            //and actual implementations can omit it, allowing the Defaul WS2801 settings to take over
+            //and abstracting SPI Connection information from the user.
+            _spi = handler != null
+                ? handler
+                : new SpiHandler(_spiConnectionSettings);
+
             _config = config;
             _stopwatch = Stopwatch.StartNew();
         }
@@ -51,7 +67,7 @@ namespace PiLed.Devices.Implementations
         {
             var payloadBytes = new byte[_config.NumLeds * 3];
 
-            for(int i = 0; i< payloadBytes.Length; i++)
+            for (int i = 0; i < payloadBytes.Length; i++)
             {
                 payloadBytes[i] = 0;
             }
