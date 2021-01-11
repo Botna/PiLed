@@ -15,7 +15,7 @@ namespace PiLed.Display
             _color = color;
         }
 
-        public void Start(CancellationToken token)
+        public void Start(CancellationToken token = default)
         {
             var numLeds = _pixelDevice._config.NumLeds;
 
@@ -30,9 +30,12 @@ namespace PiLed.Display
 
             ((IPixelDisplay)this).Flush(buffer);
 
-            while (!token.IsCancellationRequested)
-            { }
-            _pixelDevice.ClearLeds();
+            if(token != default)
+            {
+                while (!token.IsCancellationRequested)
+                { }
+                _pixelDevice.ClearLeds();
+            }
         }
     }
 }

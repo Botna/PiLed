@@ -18,7 +18,7 @@ namespace PiLed.Display
         /// <summary>
         /// Begins the displays main logic routine for this display type
         /// </summary>
-        void Start(CancellationToken token);
+        void Start(CancellationToken token = default);
 
         void Flush(params PixelBuffer[] buffers)
         {

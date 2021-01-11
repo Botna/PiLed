@@ -4,6 +4,8 @@ using PiLed.Devices.Config;
 using PiLed.Devices.Implementations;
 using PiLed.Display;
 using PiLed.Models;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace PiLed.Test.Display
 {
@@ -23,16 +25,24 @@ namespace PiLed.Test.Display
         }
 
         [Test]
-        public void WS2801ConvertBufferToBytes_Happy()
+        public async Task WS2801ConvertBufferToBytes_Happy()
         {
             var buffer = new PixelBuffer();
             buffer.PixelIndices = new int[1] { 0 };
             buffer.Color = new PixelColor(0, 1, 1);
 
-            _pixelDeviceMock.SetupGet(x => x._config.NumLeds).Returns(_config.NumLeds);
-            _pixelDeviceMock.Setup(x => x.FlushColorToLeds(buffer));
+            _pixelDeviceMock.SetupGet(x => x._config).Returns(_config);
+            _pixelDeviceMock.Setup(x => x.FlushColorToLeds(
+                It.Is<PixelBuffer[]>(y => y.Length == 1
+                    && y[0].PixelIndices.Length == 1
+                    && y[0].PixelIndices[0] == 0
+                    && y[0].Color.Hue == 0
+                    && y[0].Color.Saturation == 1
+                    && y[0].Color.Value == 1)));
 
             var display = new SolidColorDisplay(_pixelDeviceMock.Object, buffer.Color);
+
+            display.Start(CancellationToken.None);
 
             _pixelDeviceMock.VerifyAll();
         }
