@@ -25,7 +25,7 @@ namespace PiLed.Test.Display
         }
 
         [Test]
-        public async Task WS2801ConvertBufferToBytes_Happy()
+        public void WS2801ConvertBufferToBytes_Happy()
         {
             var buffer = new PixelBuffer();
             buffer.PixelIndices = new int[1] { 0 };
