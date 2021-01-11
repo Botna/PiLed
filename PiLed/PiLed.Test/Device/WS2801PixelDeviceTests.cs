@@ -16,8 +16,6 @@ namespace PiLed.Test.Device
         [SetUp]
         public void Setup()
         {
-            //Since almost no logic exist in the individual implementations, we can just one of the implementing classes to test the abstraction
-
             _spiHandlerMock = new Mock<ISpiHandler>();
 
             _config = new PixelConfig()
@@ -37,7 +35,6 @@ namespace PiLed.Test.Device
             var expectedByteArray = new byte[3] { 255, 0, 0 };
             _spiHandlerMock.Setup(x => x.FlushBytesToSpi(expectedByteArray));
 
-
             var device = new WS2801PixelDevice(_config, _spiHandlerMock.Object);
 
             device.FlushColorToLeds(buffer);
@@ -56,7 +53,6 @@ namespace PiLed.Test.Device
             var expectedByteArray = new byte[6] { 255, 0, 0, 255,0,0 };
             _spiHandlerMock.Setup(x => x.FlushBytesToSpi(expectedByteArray));
 
-
             var device = new WS2801PixelDevice(_config, _spiHandlerMock.Object);
 
             device.FlushColorToLeds(buffer);
@@ -74,7 +70,6 @@ namespace PiLed.Test.Device
 
             var expectedByteArray = new byte[6] { 255, 0, 0, 255, 0, 0 };
             _spiHandlerMock.Setup(x => x.FlushBytesToSpi(expectedByteArray));
-
 
             var device = new WS2801PixelDevice(_config, _spiHandlerMock.Object);
 
@@ -100,7 +95,6 @@ namespace PiLed.Test.Device
             var expectedByteArray = new byte[6] { 255, 0, 0, 0, 255, 0 };
             _spiHandlerMock.Setup(x => x.FlushBytesToSpi(expectedByteArray));
 
-
             var device = new WS2801PixelDevice(_config, _spiHandlerMock.Object);
 
             device.FlushColorToLeds(bufferArray);
@@ -109,16 +103,14 @@ namespace PiLed.Test.Device
         }
 
         [Test]
-        public void WS2801ConvertBuffersToColor_FlushRateHappy()
+        public void WS2801FlushRate_Happy()
         {
             _config.FlushRate = 1000;
             var buffer = new PixelBuffer();
             buffer.PixelIndices = new int[1] { 0 };
             buffer.Color = new PixelColor(0, 1, 1);
-
             var expectedByteArray = new byte[3] { 255, 0, 0 };
             _spiHandlerMock.Setup(x => x.FlushBytesToSpi(expectedByteArray));
-
 
             var device = new WS2801PixelDevice(_config, _spiHandlerMock.Object);
             var stopwatch = new Stopwatch();
@@ -129,6 +121,19 @@ namespace PiLed.Test.Device
             device.FlushColorToLeds(buffer);
             var elapsedMs = stopwatch.ElapsedMilliseconds;
             Assert.Greater(elapsedMs, 3000);
+            _spiHandlerMock.VerifyAll();
+        }
+
+        [Test]
+        public void WS2801ClearLeds_Happy()
+        {
+            var expectedByteArray = new byte[3] { 0, 0, 0 };
+            _spiHandlerMock.Setup(x => x.FlushBytesToSpi(expectedByteArray));
+
+            var device = new WS2801PixelDevice(_config, _spiHandlerMock.Object);
+
+            device.ClearLeds();
+
             _spiHandlerMock.VerifyAll();
         }
     }
