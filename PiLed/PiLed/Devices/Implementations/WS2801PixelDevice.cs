@@ -46,5 +46,19 @@ namespace PiLed.Devices.Implementations
             _spi.FlushBytesToSpi(payloadBytes);
             _stopwatch.Restart();
         }
+
+        public void ClearLeds()
+        {
+            var payloadBytes = new byte[_config.NumLeds * 3];
+
+            for(int i = 0; i< payloadBytes.Length; i++)
+            {
+                payloadBytes[i] = 0;
+            }
+
+            while (_stopwatch.ElapsedMilliseconds < _config.FlushRate) { }
+            _spi.FlushBytesToSpi(payloadBytes);
+            _stopwatch.Restart();
+        }
     }
 }

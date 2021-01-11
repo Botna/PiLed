@@ -10,5 +10,7 @@ namespace PiLed.Devices.Implementations
         PixelConfig _config { get; set; }
 
         void FlushColorToLeds(params PixelBuffer[] buffer);
+
+        void ClearLeds();
     }
 }
