@@ -20,15 +20,14 @@ namespace PiLed.Display
             var numLeds = _pixelDevice._config.NumLeds;
 
 
-            var iterator = 99;
+            double iterator = 99;
             var decrease = true;
-            var iterationValue = 1;
+            double iterationValue = 1;
 
             var colorIndex = 0;
             var color = _colors[colorIndex];
             while(!token.IsCancellationRequested)
             {
-                var sat = color.Saturation;
                 var val = color.Value;
 
                 if(iterator % 100 == 0)
@@ -49,10 +48,9 @@ namespace PiLed.Display
                     ? iterator - iterationValue
                     : iterator + iterationValue;
 
-                sat = sat - (iterator / 100);
                 val = val - (iterator / 100);
 
-                var tempColor = new PixelColor(color.Hue, sat, val);
+                var tempColor = new PixelColor(color.Hue, color.Saturation, val);
                 var buffer = new PixelBuffer();
                 buffer.PixelIndices = new int[numLeds];
                 for (int i = 0; i < numLeds; i++)
