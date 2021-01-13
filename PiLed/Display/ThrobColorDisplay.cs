@@ -19,7 +19,6 @@ namespace PiLed.Display
         {
             var numLeds = _pixelDevice._config.NumLeds;
 
-
             double iterator = 99;
             var decrease = true;
             double iterationValue = 1;
