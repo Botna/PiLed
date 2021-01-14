@@ -1,8 +1,14 @@
 trigger:
 - main
 
+pr: none
+
 pool:
   vmImage: 'ubuntu-latest'
+
+
+variables:
+- group: NugetDeployment
 
 steps:
 - task: DotNetCoreCLI@2
