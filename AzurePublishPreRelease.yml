@@ -27,7 +27,7 @@ steps:
 - powershell: "ls"
   displayName: "List contents of nupkgs"
 
-- powershell: "dotnet pack -c Release -o nupkgs --version-suffix \"-beta\""
+- powershell: "dotnet pack \".\\PiLed\\PiLed.csproj\" -c Release -o nupkgs --version-suffix \"-beta\""
   displayName: "Build PiLed nuget package"
 
 - powershell: "ls nupkgs"
