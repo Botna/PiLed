@@ -22,4 +22,7 @@ steps:
   inputs:
     command: test
     projects: '**/*Test/*.csproj'
-    arguments: '--collect "Code coverage"' 
+    arguments: '--collect "Code coverage"'
+
+- powershell: "dotnet pack .\PiLed\Piled.csproj -c Release -o nupkgs --version-suffix \"-beta\""
+  displayName: "Build PiLed nuget package"
