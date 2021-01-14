@@ -4,6 +4,9 @@ pr:
 pool:
   vmImage: 'ubuntu-latest'
 
+
+variables:
+- group: NugetDeployment
 steps:
 - task: DotNetCoreCLI@2
   displayName: 'Restore projects'
@@ -24,10 +27,7 @@ steps:
     projects: '**/*Test/*.csproj'
     arguments: '--collect "Code coverage"'
 
-- powershell: "ls"
-  displayName: "List contents of nupkgs"
-
-- powershell: "dotnet pack \".\\PiLed\\PiLed.csproj\" -c Release -o nupkgs --version-suffix \"-beta\""
+- powershell: "dotnet pack \".\\PiLed\\PiLed.csproj\" -c Release -o nupkgs --version-suffix \"-beta-${Build.BuildNumber}\""
   displayName: "Build PiLed nuget package"
 
 - powershell: "ls nupkgs"
