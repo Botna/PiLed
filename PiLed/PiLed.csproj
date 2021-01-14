@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Version>0.1.0$(VersionSuffix)</Version>
+    <Description>An SDK to communicate with a variety of Pixel based Leds via the Serial Peripheral Interface.</Description>
   </PropertyGroup>
 
   <ItemGroup>
