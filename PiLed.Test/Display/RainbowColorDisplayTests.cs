@@ -4,7 +4,6 @@ using PiLed.Devices.Config;
 using PiLed.Devices.Implementations;
 using PiLed.Display;
 using PiLed.Models;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
