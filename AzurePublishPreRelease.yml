@@ -1,3 +1,8 @@
+trigger:
+  branches:
+    exclude:
+    - "*"
+
 pr:
 - main
 
@@ -37,6 +42,6 @@ steps:
 - powershell: |
     Get-ChildItem nupkgs |
     Foreach-Object {
-    dotnet nuget push $_.FullName --apiKey ${NugetApiKey} --source https://api.nuget.org/v3/index.json
+    dotnet nuget push $_.FullName --api-key ${NugetApiKey} --source https://api.nuget.org/v3/index.json
     }
   displayName: "Deploy Packages to nuget"
