@@ -29,3 +29,9 @@ steps:
     command: test
     projects: '**/*Test/*.csproj'
     arguments: '--collect "Code coverage"'
+
+- powershell: "dotnet pack \".\\PiLed\\PiLed.csproj\" -c Release -o nupkgs"
+  displayName: "Build PiLed nuget package"
+
+- powershell: "ls nupkgs"
+  displayName: "List contents of nupkgs"
