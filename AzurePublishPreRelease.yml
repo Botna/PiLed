@@ -7,7 +7,6 @@ pool:
 
 variables:
 - group: NugetDeployment
-- group: General Deploy Variables
 
 steps:
 - task: DotNetCoreCLI@2
