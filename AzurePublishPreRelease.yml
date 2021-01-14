@@ -39,9 +39,12 @@ steps:
 - powershell: "ls nupkgs"
   displayName: "List contents of nupkgs"
 
+- powershell: "echo $(NugetApiKey)"
+  displayName: "Debugging help"
+
 - powershell: |
     Get-ChildItem nupkgs |
     Foreach-Object {
-    dotnet nuget push $_.FullName --api-key ${NugetApiKey} --source https://api.nuget.org/v3/index.json --skip-duplicate
+    dotnet nuget push $_.FullName --api-key $(NugetApiKey) --source https://api.nuget.org/v3/index.json --skip-duplicate
     }
   displayName: "Deploy Packages to nuget"
