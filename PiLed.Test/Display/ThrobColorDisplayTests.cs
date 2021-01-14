@@ -37,7 +37,6 @@ namespace PiLed.Test.Display
             var cs = new CancellationTokenSource();
             Task.Run(()=> display.Start(cs.Token));
 
-            //Not long enough for the full throb effect, but long enough for multiple Flushes.
             Thread.Sleep(5);
             cs.Cancel();
             _pixelDeviceMock.VerifyAll();
@@ -63,7 +62,6 @@ namespace PiLed.Test.Display
             var cs = new CancellationTokenSource();
             Task.Run(() => display.Start(cs.Token));
 
-            //Not long enough for the full throb effect, but long enough for multiple Flushes.
             Thread.Sleep(5);
             cs.Cancel();
             _pixelDeviceMock.VerifyAll();
