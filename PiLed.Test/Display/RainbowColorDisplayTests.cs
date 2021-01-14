@@ -62,7 +62,7 @@ namespace PiLed.Test.Display
             Task.Run(() => display.Start(cs.Token));
 
 
-            Thread.Sleep(3);
+            Thread.Sleep(5);
             cs.Cancel();
             _pixelDeviceMock.VerifyAll();
             
