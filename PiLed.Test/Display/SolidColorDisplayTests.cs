@@ -25,7 +25,7 @@ namespace PiLed.Test.Display
         }
 
         [Test]
-        public void WS2801ConvertBufferToBytes_Happy()
+        public void SingleColorDisplay_Happy()
         {
             var buffer = new PixelBuffer();
             buffer.PixelIndices = new int[1] { 0 };
