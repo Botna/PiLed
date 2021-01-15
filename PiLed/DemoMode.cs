@@ -16,11 +16,11 @@ namespace PiLed
         public DemoMode(IPixelDevice device)
         {
             _displays = new List<IPixelDisplay>();
-            _displays.Add(new ThrobDisplay(device, new PixelColor(0, 1, 1)));
+            _displays.Add(new ThrobColorDisplay(device, new PixelColor(0, 1, 1)));
             _displays.Add(new RainbowColorDisplay(device, RainbowType.Led));
-            _displays.Add(new ThrobDisplay(device, new PixelColor(120, 1, 1)));
+            _displays.Add(new ThrobColorDisplay(device, new PixelColor(120, 1, 1)));
             _displays.Add(new RainbowColorDisplay(device, RainbowType.ColorWheel));
-            _displays.Add(new ThrobDisplay(device, new PixelColor(240, 1, 1)));
+            _displays.Add(new ThrobColorDisplay(device, new PixelColor(240, 1, 1)));
             _displays.Add(new RainbowColorDisplay(device, RainbowType.Led));
         }
 
