@@ -7,9 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PiLed", "PiLed\PiLed.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2111FA53-D640-4FCB-AF46-4601793383E1}"
 	ProjectSection(SolutionItems) = preProject
-		AzurePublishPreRelease.yml = AzurePublishPreRelease.yml
 		AzurePublishRelease.yml = AzurePublishRelease.yml
+		AzurePullRequestTester.yml = AzurePullRequestTester.yml
 		Powershell scripts\BuildPreReleaseAndMoveToLocalCache.ps1 = Powershell scripts\BuildPreReleaseAndMoveToLocalCache.ps1
+		pull_request_template.md = pull_request_template.md
 		README.md = README.md
 	EndProjectSection
 EndProject
