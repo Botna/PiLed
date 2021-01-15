@@ -1,5 +1,9 @@
 # PiLed
 
+<<<<<<< HEAD
+[![Build Status](https://dev.azure.com/drewzisa/drewzisa/_apis/build/status/Botna.PiLed?branchName=main)](https://dev.azure.com/drewzisa/drewzisa/_build/latest?definitionId=1&branchName=main)
+
+=======
 [![Build Status](https://dev.azure.com/drewzisa/drewzisa/_apis/build/status/PiLed/Botna.PiLed%20Publish?branchName=main)](https://dev.azure.com/drewzisa/drewzisa/_build/latest?definitionId=1&branchName=main)
 
 Dotnetcore library for operating Pixel based LED's on a raspberry pi, or other linux based devices, via the SPI
@@ -44,3 +48,4 @@ allows for more direct control over the LED's as opposed to relying on the pre-b
 
             ws2801Device.FlushColorToLeds(greenBuffer, blueBuffer);
 ```
+>>>>>>> ebd9a380797bc655b866038ce09dcaa02ec6dcf7
