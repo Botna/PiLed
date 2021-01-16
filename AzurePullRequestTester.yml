@@ -23,6 +23,10 @@ steps:
       echo %MyCustomVar%
       
       echo ##vso[task.setvariable variable=ShortSourceVersion]%MyCustomVar%
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'echo $(ShortSourceVersion)'
 # - task: DotNetCoreCLI@2
 #   displayName: 'Restore projects'
 #   inputs:
