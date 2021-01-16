@@ -17,7 +17,7 @@ steps:
       testVar=12345678 | cut -c1-7
       
       echo testVar
-      echo $testVar
+      echo $testVar | cut -c1-2
 - task: Bash@3
   inputs:
     targetType: 'inline'
