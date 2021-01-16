@@ -14,7 +14,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      testVar=Hello
+      testVar=12345678 | cut -c0-7
       
       echo testVar
       echo $testVar
