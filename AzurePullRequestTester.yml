@@ -20,13 +20,14 @@ steps:
       
       set MyCustomVar=%TestVar:~0,7%
       
-      echo %MyCustomVar%
+      echo $MyCustomVar
       
-      echo ##vso[task.setvariable variable=ShortSourceVersion]%MyCustomVar%
+      echo ##vso[task.setvariable variable=ShortSourceVersion]$MyCustomVar
 - task: Bash@3
   inputs:
     targetType: 'inline'
     script: 'echo $(Build.SourceVersion)'
+
 # - task: DotNetCoreCLI@2
 #   displayName: 'Restore projects'
 #   inputs:
